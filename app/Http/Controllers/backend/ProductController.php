@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Controllers\backend;
-
 use App\Http\Controllers\Controller;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Common;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     public function __construct()
     {
@@ -14,6 +14,7 @@ class CategoryController extends Controller
     }
     public function add(Request $request)
     {
+       // pr(Common::getCategory());
         if ($request->method() == 'POST' || $request->method() == 'post' || $request->method() == 'PUT') {
             $this->validate($request, [
                 'slug' => 'required',
@@ -27,7 +28,7 @@ class CategoryController extends Controller
                 return redirect('admin/category/view');
             }
         }
-        return view('backend/category/add');
+        return view('backend/product/add',['data'=>Common::getCategory()]);
     }
     public function view(Request $request)
     {

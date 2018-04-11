@@ -8,7 +8,7 @@
       
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::guard('admin')->user()->name }}</p>
@@ -31,7 +31,7 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <li class="">
-          <a href="/admin/example">
+          <a href="admin/example">
             <i class="fa fa-dashboard"></i> <span>Example</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>
@@ -42,7 +42,7 @@
 
         
         <li class="active">
-          <a href="/admin/dashboard">
+          <a href="admin/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">Main</small>
@@ -57,10 +57,22 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="/admin/category/add"><i class="fa fa-circle-o"></i> Add New Category</a></li>            
-              <li><a href="/admin/category/view"><i class="fa fa-circle-o"></i> View/Edit Category</a></li>
+              <li><a href="admin/category/add"><i class="fa fa-circle-o"></i> Add New Category</a></li>            
+              <li><a href="admin/category/view"><i class="fa fa-circle-o"></i> View/Edit Category</a></li>
             </ul>
           </li>
+        <li class="treeview" >
+            <a href="#">
+              <i class="fa fa-share"></i> <span>Product Management</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="admin/product/add"><i class="fa fa-circle-o"></i> Add New Product</a></li>            
+              <li><a href="admin/product/view"><i class="fa fa-circle-o"></i> View/Edit Product</a></li>
+            </ul>
+        </li>
 
         <li class="treeview <?php if($path=='edit-homepage-text'){ echo 'active'; }?>" >
           <a href="#">
@@ -70,8 +82,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/add-homepage-text"><i class="fa fa-circle-o"></i> Add Homepage Text</a></li>            
-            <li><a href="/admin/view-homepage-text"><i class="fa fa-circle-o"></i> View/Edit Homepage Text</a></li>
+            <li><a href="admin/add-homepage-text"><i class="fa fa-circle-o"></i> Add Homepage Text</a></li>            
+            <li><a href="admin/view-homepage-text"><i class="fa fa-circle-o"></i> View/Edit Homepage Text</a></li>
           </ul>
         </li>
         <li class="treeview" >
@@ -82,8 +94,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/add-portfolio"><i class="fa fa-circle-o"></i> Add Portfolio</a></li>            
-            <li><a href="/admin/view-portfolio"><i class="fa fa-circle-o"></i> View/Edit Portfolio</a></li>
+            <li><a href="admin/add-portfolio"><i class="fa fa-circle-o"></i> Add Portfolio</a></li>            
+            <li><a href="admin/view-portfolio"><i class="fa fa-circle-o"></i> View/Edit Portfolio</a></li>
           </ul>
         </li>
        

@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Category Management
+            Edit Category Management
             <small>Form Details</small>
         </h1>
         <ol class="breadcrumb">
@@ -12,7 +12,7 @@
                 <a href="/admin">
                     <i class="fa fa-dashboard"></i> Home</a>
             </li>
-            <li class="active">Category Management</li>
+            <li class="active">Edit Category Management</li>
         </ol>
         @include('include.backend.flash')
     </section>
@@ -21,7 +21,7 @@
     <section class="content">
         <div class="box box-default">
             <div class="box-header with-border">
-                <h3 class="box-title">Category Management</h3>
+                <h3 class="box-title">Edit Category Management</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>
@@ -30,34 +30,37 @@
                 </div>
             </div>
             <!-- /.box-header -->
-            {{ Form::open(array('name'=>'add-form','id'=>'add-form','method'=>'post','url'=>'/admin/category/add','enctype'=>'multipart/form-data'))}}
+
+  
+            {{ Form::model($data,array('name'=>'add-form','id'=>'add-form','method'=>'post','url'=>"/admin/category/edit/{$data->id}",'enctype'=>'multipart/form-data'))}}
             <div class="box-body pad">
+             
 
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
-                            {{Form::label('name', 'Category Name',['class'=>'calssName'])}} {{ Form::text('name', '', array('class' => 'form-control','required'=>'required'))
+                            {{Form::label('name', 'Category Name',['class'=>'calssName'])}} {{ Form::text('name', null, array('class' => 'form-control','required'=>'required'))
                             }}
 
                         </div>
                         <!-- /.form-group -->
                         <div class="form-group">
-                            {{ Form::label('category slug','Category Slug') }} {{ Form::text('slug', "", array('class'=>'form-control')) }}
+                              
+                            {{ Form::label('category slug','Category Slug') }} {{ Form::text('slug', null, array('class'=>'form-control')) }}
                             <label class="error">{{ $errors->first('slug') }}</label>
                         </div>
                         <div class="form-group">
-                            {{ Form::label('short description','Category short description') }} {{ Form::textarea('short_description','',['class'=>'form-control','style'=>'height:100px'])
+                            {{ Form::label('short description','Category short description') }} {{ Form::textarea('short_description',null,['class'=>'form-control','style'=>'height:100px'])
                             }}
 
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Long description','Category Long description') }} {{ Form::textarea('long_description','',['class'=>'form-control
+                            {{ Form::label('Long description','Category Long description') }} {{ Form::textarea('long_description',null,['class'=>'form-control
                             editor']) }}
                         </div>
                         <div class="form-group">
                                 {{ Form::label('feature image','Feature Image') }} 
                                 {{ Form::file('image','',['class'=>'form-control']) }}
-                                <i class="fa fa-file-image"></i>
                         </div>
                     </div>
 
@@ -82,17 +85,17 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
-                            {{Form::label('meta_title', 'Meta Title',['class'=>'calssName'])}} {{ Form::text('meta_title', '', array('class' => 'form-control'))
+                            {{Form::label('meta_title', 'Meta Title',['class'=>'calssName'])}} {{ Form::text('meta_title', null, array('class' => 'form-control'))
                             }}
 
                         </div>
                         <!-- /.form-group -->
                         <div class="form-group">
-                            {{ Form::label('meta_keyword','Meta Keyword') }} {{ Form::textarea('meta_keyword', "", ['class'=>'form-control','style'=>'height:100px'])
+                            {{ Form::label('meta_keyword','Meta Keyword') }} {{ Form::textarea('meta_keyword', null, ['class'=>'form-control','style'=>'height:100px'])
                             }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('meta description','Meta description') }} {{ Form::textarea('meta_description','',['class'=>'form-control','style'=>'height:120px;'])
+                            {{ Form::label('meta description','Meta description') }} {{ Form::textarea('meta_description',null,['class'=>'form-control','style'=>'height:120px;'])
                             }}
                         </div>
 

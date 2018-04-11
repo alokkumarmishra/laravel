@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::any('/category/add','backend\CategoryController@add');
     Route::any('/category/view','backend\CategoryController@view');
     Route::any('/category/edit/{id}','backend\CategoryController@edit');
+    Route::any('/product/add','backend\ProductController@add');
+    Route::any('/product/view','backend\ProductController@view');
+    Route::any('/product/edit/{id}','backend\ProductController@edit');
 
 });
 

@@ -1,38 +1,35 @@
 <?php
 /***** start here my own constant *****/
-$protocol =( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ) ? 'https://' : 'http://';
-if($_SERVER['HTTP_HOST']=='localhost:8000')
-{
+$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
+if ($_SERVER['HTTP_HOST'] == 'localhost:8000') {
     $base_url = 'http://localhost:8000/';
+} else {
+    $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/';
 }
-else
-{
-    $base_url = $protocol.$_SERVER['HTTP_HOST'].'/';
-}
-define ("SITEURL", "$base_url"); //Site url here. Must be correct URL.
+define("SITEURL", "$base_url"); //Site url here. Must be correct URL.
 
-define ("PATHINFO", '/');
-define ("SITEABSPATH", base_path().PATHINFO); //Site absolute path.
-define ("UPLOADABSPATH", SITEABSPATH."public".PATHINFO."data".PATHINFO);
-define ("IMAGES", "images".PATHINFO); //Site images URL.
-define ("IMAGEURL", UPLOADABSPATH.IMAGES);
-define("MULTIMGAGE",'data/images/');
-define("RECORDADD",'Record successfully added');
-define("RECORDEDIT",'Record successfully updated');
-define("RECORDDELETE",'Record successfully deleted');
-define("RECORDACTIVE",'Record successfully activated');
-define("RECORDDEACTIVE",'Record successfully deactivated');
-define("ERROR",'Sorry something is wrong');
-function prd($arr=null)
+define("PATHINFO", '/');
+define("SITEABSPATH", base_path() . PATHINFO); //Site absolute path.
+define("UPLOADABSPATH", SITEABSPATH . "public" . PATHINFO . "data" . PATHINFO);
+define("IMAGES", "images" . PATHINFO); //Site images URL.
+define("IMAGEURL", UPLOADABSPATH . IMAGES);
+define("MULTIMGAGE", 'data/images/');
+define("RECORDADD", 'Record successfully added');
+define("RECORDEDIT", 'Record successfully updated');
+define("RECORDDELETE", 'Record successfully deleted');
+define("RECORDACTIVE", 'Record successfully activated');
+define("RECORDDEACTIVE", 'Record successfully deactivated');
+define("ERROR", 'Sorry something is wrong');
+function prd($arr = null)
 {
     echo "<pre>";
     print_r($arr);
     die;
 }
-function pr($arr=null)
+function pr($arr = null)
 {
     echo "<pre>";
-    print_r($arr);    
+    print_r($arr);
 }
 /*************  end here for the global constant  *************/
 return [
@@ -45,7 +42,7 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
-    */
+     */
 
     'name' => 'Laravel',
 
@@ -58,7 +55,7 @@ return [
     | running in. This may determine how you prefer to configure various
     | services your application utilizes. Set this in your ".env" file.
     |
-    */
+     */
 
     'env' => env('APP_ENV', 'production'),
 
@@ -71,7 +68,7 @@ return [
     | stack traces will be shown on every error that occurs within your
     | application. If disabled, a simple generic error page is shown.
     |
-    */
+     */
 
     'debug' => env('APP_DEBUG', false),
 
@@ -84,7 +81,7 @@ return [
     | the Artisan command line tool. You should set this to the root of
     | your application so that it is used when running Artisan tasks.
     |
-    */
+     */
 
     'url' => env('APP_URL', 'http://localhost'),
 
@@ -97,7 +94,7 @@ return [
     | will be used by the PHP date and date-time functions. We have gone
     | ahead and set this to a sensible default for you out of the box.
     |
-    */
+     */
 
     'timezone' => 'UTC',
 
@@ -110,7 +107,7 @@ return [
     | by the translation service provider. You are free to set this value
     | to any of the locales which will be supported by the application.
     |
-    */
+     */
 
     'locale' => 'en',
 
@@ -123,7 +120,7 @@ return [
     | is not available. You may change the value to correspond to any of
     | the language folders that are provided through your application.
     |
-    */
+     */
 
     'fallback_locale' => 'en',
 
@@ -136,7 +133,7 @@ return [
     | to a random, 32 character string, otherwise these encrypted strings
     | will not be safe. Please do this before deploying an application!
     |
-    */
+     */
 
     'key' => env('APP_KEY'),
 
@@ -153,7 +150,7 @@ return [
     |
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
-    */
+     */
 
     'log' => env('APP_LOG', 'single'),
 
@@ -168,7 +165,7 @@ return [
     | request to your application. Feel free to add your own services to
     | this array to grant expanded functionality to your applications.
     |
-    */
+     */
 
     'providers' => [
 
@@ -212,7 +209,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\HelperServiceProvider::class,       
+        App\Providers\HelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
     ],
@@ -226,7 +223,7 @@ return [
     | is started. However, feel free to register as many as you wish as
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
-    */
+     */
 
     'aliases' => [
 
@@ -262,14 +259,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'MyFun' => App\Helpers\MyFuncs::class,      
-       'Form'      => Collective\Html\FormFacade::class,
-       'Html'      => Collective\Html\HtmlFacade::class,
-        
+        'MyFun' => App\Helpers\MyFuncs::class,
+        'Common' => App\Helpers\Common::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
-
 ];
-
-

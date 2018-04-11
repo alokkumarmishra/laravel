@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{{ config('app.name', 'Test Laravel') }}</title>
+<title>{{ config('app.name', 'Test Laravel') }}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">  
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> 
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <!-- Start here for the blueimp-gallery -->
-<link href="/backend/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet"/>
-<link href="/backend/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
-<link href="/backend/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
-<link href="/backend/plugins/jquery-file-upload/css/jquery.fancybox.css" rel="stylesheet"/>
+<base href="{{ SITEURL }}">
+<link href="backend/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet"/>
+<link href="backend/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
+<link href="backend/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
+<link href="backend/plugins/jquery-file-upload/css/jquery.fancybox.css" rel="stylesheet"/>
 <!-- end blueimp-gallery  -->
-<link rel="stylesheet" href="/backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="/backend/bower_components/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/backend/bower_components/Ionicons/css/ionicons.min.css">
-<link rel="stylesheet" href="/backend/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-<link rel="stylesheet" href="/backend/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="/backend/plugins/iCheck/all.css">
-<link rel="stylesheet" href="/backend/plugins/timepicker/bootstrap-timepicker.min.css">
-<link rel="stylesheet" href="/backend/bower_components/select2/dist/css/select2.min.css">
-<link rel="stylesheet" href="/backend/dist/css/AdminLTE.min.css">
-<link rel="stylesheet" href="/backend/dist/css/skins/_all-skins.min.css">
-<link rel="stylesheet" href="/backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-<link rel="stylesheet" href="/backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="backend/bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="backend/bower_components/Ionicons/css/ionicons.min.css">
+<link rel="stylesheet" href="backend/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="backend/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="backend/plugins/iCheck/all.css">
+<link rel="stylesheet" href="backend/plugins/timepicker/bootstrap-timepicker.min.css">
+<link rel="stylesheet" href="backend/bower_components/select2/dist/css/select2.min.css">
+<link rel="stylesheet" href="backend/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="backend/dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<link rel="stylesheet" href="backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <!-- Google Font -->
-<link rel="stylesheet" href="/backend/css/style.css">
+<link rel="stylesheet" href="backend/css/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{-- <link rel="stylesheet" href="/backend/dist/js/pages/jquery.min.js"> --}}
 <script>
   var SITEURL="{{SITEURL}}"
 window.Laravel = <?php echo json_encode([
@@ -58,62 +60,56 @@ window.Laravel = <?php echo json_encode([
 @include('include.backend.rightsidebar')
 
 
-C:\xampp\htdocs\laravel2\public\backend\plugins\jquery-validation\js
-
-
-
-<script src="/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/backend/plugins/jQueryUI/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="backend/plugins/jQueryUI/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
 {{--  start here jquery validtion  --}}
-<script src="/backend/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="backend/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/backend/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 
 
 <!-- start here for the blu-emp-gallery multiple upload-->
 <!-- <script src="http://localhost/upload-master/js/vendor/jquery.ui.widget.js"></script> -->
-<script src="/backend/plugins/jquery-file-upload/js/vendor/tmpl.min.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/vendor/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="/backend/plugins/jquery-file-upload/js/vendor/load-image.min.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/vendor/load-image.min.js"></script>
 <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="/backend/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
 <!-- blueimp Gallery script -->
-<script src="/backend/plugins/jquery-file-upload/blueimp-gallery/jquery.blueimp-gallery.min.js"></script>
+<script src="backend/plugins/jquery-file-upload/blueimp-gallery/jquery.blueimp-gallery.min.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
 <!-- The File Upload processing plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
 <!-- The File Upload image preview & resize plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
 <!-- The File Upload audio preview plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
 <!-- The File Upload video preview plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
 <!-- The File Upload validation plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
 <!-- The File Upload user interface plugin -->
-<script src="/backend/plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+<script src="backend/plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
 <!-- <script src="http://localhost/upload-master/js/main.js"></script> -->
 <!-- Fancybox plugin -->
-
-
-
 <!-- end gallery multiple upload -->
-<script src="/backend/bower_components/select2/dist/js/select2.full.min.js"></script>
-<script src="/backend/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="/backend/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="/backend/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<script src="/backend/bower_components/moment/min/moment.min.js"></script>
-<script src="/backend/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="/backend/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<script src="/backend/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<script src="/backend/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/backend/plugins/iCheck/icheck.min.js"></script>
-<script src="/backend/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="/backend/dist/js/adminlte.min.js"></script>
-<script src="/backend/dist/js/demo.js"></script>
-<script src="/backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+<script src="backend/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="backend/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="backend/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="backend/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="backend/bower_components/moment/min/moment.min.js"></script>
+<script src="backend/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="backend/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="backend/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="backend/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="backend/plugins/iCheck/icheck.min.js"></script>
+<script src="backend/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="backend/dist/js/adminlte.min.js"></script>
+<script src="backend/dist/js/demo.js"></script>
+<script src="backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script>
   $(function () {    
     $('.editor').wysihtml5()
