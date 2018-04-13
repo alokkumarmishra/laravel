@@ -8,6 +8,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <!-- Start here for the blueimp-gallery -->
 <base href="{{ SITEURL }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<link rel="stylesheet" href="backend/dist/css/plugins.css">
 <link href="backend/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet"/>
 <link href="backend/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
 <link href="backend/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
@@ -22,12 +24,12 @@
 <link rel="stylesheet" href="backend/plugins/timepicker/bootstrap-timepicker.min.css">
 <link rel="stylesheet" href="backend/bower_components/select2/dist/css/select2.min.css">
 <link rel="stylesheet" href="backend/dist/css/AdminLTE.min.css">
+
 <link rel="stylesheet" href="backend/dist/css/skins/_all-skins.min.css">
 <link rel="stylesheet" href="backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 <link rel="stylesheet" href="backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <!-- Google Font -->
 <link rel="stylesheet" href="backend/css/style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {{-- <link rel="stylesheet" href="/backend/dist/js/pages/jquery.min.js"> --}}
 <script>
@@ -64,7 +66,7 @@ window.Laravel = <?php echo json_encode([
 <script src="backend/plugins/jQueryUI/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
 {{--  start here jquery validtion  --}}
 <script src="backend/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="/backend/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+<script src="backend/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 
 
 <!-- start here for the blu-emp-gallery multiple upload-->
@@ -115,8 +117,8 @@ window.Laravel = <?php echo json_encode([
     $('.editor').wysihtml5()
   })
 </script>
-<script src="/backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/backend/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="backend/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
   $(function () {
     //Initialize Select2 Elements
@@ -218,6 +220,11 @@ $(".sidebar-menu").find("li a[href='/admin/"+hashes[3]+"']").parent('li').addCla
 </div>
 </div>
 </div>
+<style>
+  .blueimp-gallery>.close {
+   margin-top: 2px;
+}
+</style>
 <!-- end show image in popup -->
 
 </body>

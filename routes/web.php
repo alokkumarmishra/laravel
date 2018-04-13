@@ -20,12 +20,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/register', 'backend\Auth\RegisterController@getRegisterForm');
     Route::post('/saveregister', 'backend\Auth\RegisterController@saveRegisterForm');
     Route::get('/dashboard', 'backend\AdminController@dashboard');
+    Route::any('/profile', 'backend\AdminController@profile');
+    Route::any('/view-enquiry', 'backend\AdminController@viewEnquiry');
+    Route::any('/enquiry', 'backend\AdminController@enquiry');
     Route::any('/add-portfolio', 'backend\AdminController@addPortfolio');
     Route::any('/logout', 'backend\Auth\LoginController@getLogout');
     Route::get('/', 'backend\AdminController@dashboard');  
     Route::any('/fileupload','backend\AdminController@fileupload');
     Route::any('/sorting','backend\AdminController@sorting');
-
+    
 
     Route::any('/example', 'backend\AdminController@example');   
     Route::any('/add-homepage-text', 'backend\AdminController@addHomepageText');   

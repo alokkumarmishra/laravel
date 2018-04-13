@@ -1,6 +1,15 @@
+<?php $profile=Common::getAdminProfile(Auth::guard('admin')->user()->id);?>
   <?php  $path = Route::getCurrentRoute()->getPath();
   $path=explode("/", $path);
-  $path=trim($path[1]);
+  if(isset($path[1]))
+  {
+    $path=trim($path[1]);
+  }
+  else
+  {
+    $path=null;
+  }
+  
  ?>
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -8,10 +17,10 @@
       
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{SITEURL}}data/images/{{$profile->profile_image}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ Auth::guard('admin')->user()->name }}</p>
+          <p>{{$profile->name}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -30,20 +39,17 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="">
+        <li class="" style="display: none;">
           <a href="admin/example">
             <i class="fa fa-dashboard"></i> <span>Example</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>
             </span>
           </a>
-        </li>
-       
-
-        
+        </li>        
         <li class="active">
           <a href="admin/dashboard">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-home"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">Main</small>
             </span>
@@ -51,7 +57,7 @@
         </li>
         <li class="treeview" >
             <a href="#">
-              <i class="fa fa-share"></i> <span>Category Management</span>
+              <i class="fa fa-certificate"></i> <span>Category Management</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -61,9 +67,9 @@
               <li><a href="admin/category/view"><i class="fa fa-circle-o"></i> View/Edit Category</a></li>
             </ul>
           </li>
-        <li class="treeview" >
+        <li class="treeview">
             <a href="#">
-              <i class="fa fa-share"></i> <span>Product Management</span>
+              <i class="fa fa-product-hunt"></i> <span>Product Management</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -73,6 +79,13 @@
               <li><a href="admin/product/view"><i class="fa fa-circle-o"></i> View/Edit Product</a></li>
             </ul>
         </li>
+        <li class="active">
+            <a href="admin/enquiry">
+              <i class="fa fa-envelope"></i> <span>Enquiry Management</span>
+              <span class="pull-right-container">               
+              </span>
+            </a>
+          </li>
 
         <li class="treeview <?php if($path=='edit-homepage-text'){ echo 'active'; }?>" >
           <a href="#">

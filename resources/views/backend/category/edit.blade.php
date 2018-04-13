@@ -1,5 +1,4 @@
 @extends('layouts.adminapp') @section('content')
-<?php $lastid=1; ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <section class="content-header">
@@ -61,6 +60,8 @@
                         <div class="form-group">
                                 {{ Form::label('feature image','Feature Image') }} 
                                 {{ Form::file('image','',['class'=>'form-control']) }}
+                                {{Form::hidden('image2',$data->feature_image,[])}}
+                                <a href="javascript:void(0);" data-img="{{SITEURL}}data/images/{{$data->feature_image}}" class="img_how_pop"><i class="fa fa-picture-o" aria-hidden="true" data-toggle="modal"></i></a>
                         </div>
                     </div>
 

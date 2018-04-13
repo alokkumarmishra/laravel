@@ -1,5 +1,4 @@
 @extends('layouts.adminapp') @section('content')
-<?php $lastid=1; ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <section class="content-header">

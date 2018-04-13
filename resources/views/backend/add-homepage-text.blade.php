@@ -1,6 +1,6 @@
 @extends('layouts.adminapp')
 @section('content')
-<?php $lastid=1; ?>
+<?php $lastid=6; ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">    
     <section class="content-header">
@@ -313,7 +313,7 @@ $.ajaxSetup(
     $('#fileupload').addClass('fileupload-processing');
     $.ajax({
      url: $('#fileupload').attr("action"),
-     data: {id: 1,      
+     data: {id: <?php echo $lastid; ?>,      
      table: 'campaignphotos' /* specify table name */ },
      dataType: 'json',
      context: $('#fileupload')[0],

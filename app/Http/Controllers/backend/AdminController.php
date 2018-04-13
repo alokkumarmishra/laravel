@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use MyFun;
+use Auth;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -34,6 +36,93 @@ class AdminController extends Controller
     {
         return view('backend.dashboard');
     }
+    public function profile(Request $request)
+    {
+        $data = DB::table('admins')->find(Auth::guard('admin')->user()->id);
+        if ($request->method() == 'POST' || $request->method() == 'post' || $request->method() == 'PUT') 
+        {
+            $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required',                
+            ]);
+
+            $formData = $request->input();
+            //prd($formData);
+                /** for upoad file **/
+                if ($request->hasFile('image')) 
+                {
+                    $filename = MyFun::uploadFile($request->file('image'), IMAGEURL);
+                    $formData['profile_image'] = $filename;
+                    /* for delete image */
+                    if ($formData['image2'] != '') 
+                    {
+                        unlink('data/images/' . $formData['image2']);
+                    }
+                    /*
+                    $image_source_path =  'data/images/' . $filename;                  
+                    $image_destination_path =  'data/images/thumbnail/' . $filename;                    
+                    MyFun::resizeImage(150, 150, $image_source_path, $image_destination_path,100);   
+                    */                
+                }
+                else{
+                    $formData['profile_image'] = $formData['image2'];
+                }
+                if(!empty($formData['new_password']))
+                {
+                    if($formData['new_password']==$formData['confirm_password'])
+                    {
+                        if (Hash::check($formData['old_password'], $data->password))       
+                        {
+                            $formData['password']=Hash::make($formData['new_password']);
+                        }    
+                        else{
+                            \Session::flash('error', 'Please enter valid old password');
+                             return redirect('admin/profile');
+                        }                    
+                    }
+                    else{
+                        \Session::flash('error', 'Password do not matched');
+                         return redirect('admin/profile');
+                    }
+                }
+                $response = MyFun::update($formData, 'admins', ['id' => Auth::guard('admin')->user()->id]);
+                if ($response) {
+                    \Session::flash('success', 'Profile successfully updated');
+                    return redirect('admin/profile');
+                } else {
+                    \Session::flash('error', 'Sorry something is wrong');
+                }
+
+        }
+        return view('backend.profile',['data'=>$data]);
+
+    }
+    public function enquiry(Request $request)
+    {
+        /* for the delete */
+        if (!empty($request->id) && $request->type == 'del') {           
+            $response = MyFun::update(['active'=>'del'], 'tblquery', ['id' => $request->id]);
+            if ($response) {
+                \Session::flash('success', RECORDDELETE);
+                return redirect('admin/enquiry');
+            }
+        }
+        $data = DB::table('tblquery')
+        ->where('active','<>','del')
+        ->orderBy('id', 'desc')
+        ->get();
+        return view('backend.enquiry',['data'=>$data]);
+    }
+    public function viewEnquiry(Request $request)
+    {
+        $data = DB::table('tblquery')
+        ->where('id',$request->id)        
+        ->first();        
+        return view('backend.view-enquiry',['data'=>$data]);        
+    }
+
+
+
     public function addPortfolio()
     {
         return view('backend.add-portfolio');
@@ -130,7 +219,9 @@ class AdminController extends Controller
             'delete_type' => 'POST',
             'upload_dir' => MULTIMGAGE,
         );
-        require_once base_path() . '\vendor\fileupload\index.php';
+
+        require_once base_path() . '/vendor/fileupload/index.php';
+       // require_once '/var/www/html/demo/laravel/control/vendor/fileupload/index.php';
         $upload_handler = new \CustomUploadHandler($options);
         die;
     }
@@ -157,8 +248,17 @@ class AdminController extends Controller
                 echo "success";
             }
         }
+        /********  for the product  *******/
+        if (isset($formData['type']) && $formData['type'] == 'product') {
+            if (!empty($array)) {
+                foreach ($array as $key => $value) {
+                    $response = MyFun::update(['orders' => $key], 'products', ['id' => $value]);
+                }
+                echo "success";
+            }
+        }
         /********  for the homepage text  *******/
-        if (isset($formData['type']) && $formData['type'] == 'category') {
+        if (isset($formData['type']) && $formData['type'] == 'homepagetext') {
             if (!empty($array)) {
                 foreach ($array as $key => $value) {
                     $response = MyFun::update(['orders' => $key], 'homepagetext', ['id' => $value]);
